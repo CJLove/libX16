@@ -1,0 +1,22 @@
+{
+    "env": {
+      "myDefaultIncludePath": ["${workspaceFolder}", "${workspaceFolder}/include"],
+      "myCompilerPath": "/usr/local/share/cc65/include/"
+    },
+    "configurations": [
+      {
+        "name": "linux",
+        "intelliSenseMode": "gcc-x64",
+        "includePath": ["${myCompilerPath}", "${myDefaultIncludePath}" ],
+        "compilerPath": "/usr/local/bin/cl65",
+        "cStandard": "c99",
+        "cppStandard": "c++17",
+        "browse": {
+          "path": ["${workspaceFolder}"],
+          "limitSymbolsToIncludedHeaders": true,
+          "databaseFilename": ""
+        }
+      }
+    ],
+    "version": 4
+  }

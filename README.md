@@ -4,10 +4,20 @@
 
 ### vload()
 ```c
-unsigned vload(const char* filename, uint32_t addr);
+unsigned vload(const char* filename, unsigned char device, uint32_t addr);
+
+unsigned vload_host(const char *filename, uint32_t addr);
+
+unsigned vload_sd(const char *filename, uint32_t addr);
 ```
 
-Load data from a binary file to the specified VRAM address.  
+vload() loads data from file on specified device to the specified VRAM address.
+
+vload_host() loads data from the x16 emulator host filesystem to the specified VRAM address.
+
+vload(sd() loads data from the SD device to the specified VRAM address.
+
+- device - specifies the device to load from
 - addr - 20-bit VRAM address (includes bank #)
 - Returns the number of bytes read, or 0 on failure
 
