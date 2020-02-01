@@ -1,0 +1,2 @@
+# Sample binary data to load to RAM or VRAM
+00ff 00ff 00ff 00ff 00ff 00ff 00ff

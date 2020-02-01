@@ -1,3 +1,9 @@
+# Executables
+*.prg
+
+# Intermediate assembly files
+*.s
+
 # Prerequisites
 *.d
 
