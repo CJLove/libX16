@@ -2,28 +2,18 @@
 #include <cx16.h>
 #include <stdio.h>
 #include <stdint.h>
-#include <cbm.h>
+#include "load.h"
 
 int main()
 {
     const char *fileName = "test.bin";
-    unsigned result = 0;
-    unsigned size = 0;
-    unsigned addr = 0xa000;
+    uint16_t result = 0;
+    uint16_t size = 0;
+    uint16_t addr = 0xa000;
     unsigned char *dest = (unsigned char*)addr;
     int i = 0;
 
-    // Set bank 1
-    VIA1.pra = 1;
-#if 1
-    // Use cc65 kernal wrappers directly
-    cbm_k_setlfs(1,8,0);
-    cbm_k_setnam(fileName);
-    size = (cbm_k_load(0,addr) - addr);
-#else
-    // Use cbm_load()
-    size = cbm_load(fileName,8,dest);
-#endif
+    size = load_bank_host(fileName,1);
     if (size) {
         printf("Loaded %d bytes\n",size);
 
@@ -42,15 +32,7 @@ int main()
             printf("\nFAILED\n");
         } else {
             printf("\nPASSED\n");
-        }
-
-        VIA1.pra = 2;
-        printf("Dumping bank 2 @ 0x%x:\n",addr);
-        for (i = 0; i < size; i++) {
-            unsigned char data = *(dest+i);
-            printf("%02x ",data);
-        }
-        printf("\n");    
+        }  
 
     }
     return result;

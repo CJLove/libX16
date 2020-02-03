@@ -20,10 +20,13 @@ vload_test.prg: $(FILES)
 	rm -f *.o *.s
 
 FILES2 := \
-	file_test.c
+	load_bank_test.c
 
-file_test.prg: $(FILES2)
-	cc65 -t cx16 file_test.c
-	ca65 -t cx16 file_test.s
-	ld65 -t cx16 -o file_test.prg file_test.o cx16.lib
-	rm -f *.o *.s
+load_bank_test.prg: $(FILES2)
+	cl65 -t cx16 -o load_bank_test.prg -I $(INCLUDE) -L$(LIBRARIES) $(FILES2) libX16.lib cx16.lib
+
+FILES3 := \
+	load_file_test.c
+
+load_file_test.prg: $(FILES3)
+	cl65 -t cx16 -o load_file_test.prg -I $(INCLUDE) -L$(LIBRARIES) $(FILES3) libX16.lib cx16.lib

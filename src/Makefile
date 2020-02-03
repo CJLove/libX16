@@ -5,17 +5,20 @@ LIBRARIES := ../lib
 INCLUDE := ../include
 
 FILES := \
-	vload.c
+	vload.c load.c
 
-OPT := 
-# OPT := -O
+OBJ = $(FILES:%.c=%.o)
 
-libX16.lib: $(FILES)
-	cc65 $(OPT) -t cx16 -I $(INCLUDE) vload.c
-	ca65 -t cx16 vload.s
-	ar65 r libX16.lib vload.o
+OPT := -Oi
+# OPT := -g
+
+.c.o:
+	cc65 -t cx16 $(OPT) -I $(INCLUDE) $<
+	ca65 -t cx16 $(<:%.c=%.s)
+
+libX16.lib: $(OBJ)
+	ar65 r libX16.lib $(OBJ)
 	cp *.lib $(LIBRARIES)
-	rm -f *.o *.s
 
 clean:
 	rm -f $(LIBRARIES)/*.lib *.o *.s *.lib
