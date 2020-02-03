@@ -15,7 +15,7 @@ vload() loads data from file on specified device to the specified VRAM address.
 
 vload_host() loads data from the x16 emulator host filesystem to the specified VRAM address.
 
-vload(sd() loads data from the SD device to the specified VRAM address.
+vload_sd() loads data from the SD device to the specified VRAM address.
 
 - device - specifies the device to load from
 - addr - 20-bit VRAM address (includes bank #)
