@@ -40,7 +40,7 @@ load_bank_sd() loads data from the SD device to the specified bank
 
 ### Load RAM
 ```c
-uint16_t load_file(const char *filename, uint8_t device, uint16_t addr)
+uint16_t load_file(const char *filename, uint8_t device, uint16_t addr);
 
 uint16_t load_file_host(const char *filename, uint16_t addr);
 
