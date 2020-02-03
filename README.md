@@ -59,4 +59,4 @@ load_file_sd() loads data from the SD device to the specified address
 ## Test code
 - vload_test.c builds `vload_test.prg` which loads data from TEST.BIN into VRAM in VERA banks 0 and 1 with validation.
 - load_file_test.c builds `load_file_test.prg` which loads data from TEST.BIN into RAM at 0x9000
-- load_bank_test.c builds 'load_bank_test.prg' which loads data from TEST.BIN into Bankd RAM at 0xa000
+- load_bank_test.c builds `load_bank_test.prg` which loads data from TEST.BIN into Bankd RAM at 0xa000
