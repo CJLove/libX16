@@ -77,7 +77,7 @@ save_file_sd() saves data from the specified address range to a file on the SD d
 - Returns 0 for success, non-zero for failure
 
 ### Save RAM Bank(s)
-**Note:** The following APIs are notional pending actual kernal support for saving RAM bank(s) to file.  Currently it isn't possible to save RAM banks.
+**Note:** The following APIs are notional pending actual kernal support for saving RAM bank(s) to file. See https://github.com/commanderx16/x16-rom/issues/136 for the kernal issue. Currently it isn't possible to save RAM banks.
 
 ```c
 uint8_t save_bank(const char *fileName, uint8_t device, uint8_t bankStart, uint8_t bankEnd);

@@ -30,3 +30,15 @@ FILES3 := \
 
 load_file_test.prg: $(FILES3)
 	cl65 -t cx16 -o load_file_test.prg -I $(INCLUDE) -L$(LIBRARIES) $(FILES3) libX16.lib cx16.lib
+
+FILES4 := \
+	save_file_test.c
+
+save_file_test.prg: $(FILES4)
+	cl65 -t cx16 -o save_file_test.prg -I $(INCLUDE) -L$(LIBRARIES) $(FILES4) libX16.lib cx16.lib
+
+FILES5 := \
+	save_bank_test.c
+
+save_bank_test.prg: $(FILES5)
+	cl65 -t cx16 -o save_bank_test.prg -I $(INCLUDE) -L$(LIBRARIES) $(FILES5) libX16.lib cx16.lib

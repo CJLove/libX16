@@ -4,6 +4,10 @@
 # Intermediate assembly files
 *.s
 
+# Test binary files
+TESTBANK.BIN
+TESTSAVE.BIN
+
 # Prerequisites
 *.d
 
