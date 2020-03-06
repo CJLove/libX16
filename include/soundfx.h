@@ -22,6 +22,9 @@ struct soundFx_t {
 // returns 1 when sound effect is complete
 extern int playFx(struct soundFx_t *fx);
 
+// Synchronously play a specified sound effect in its own main loop
+void playFxSync(struct soundFx_t *fx);
+
 // Preempt the specified sound effect and reset state information for 
 // next use of the effect
 extern int stopFx(struct soundFx_t *fx);

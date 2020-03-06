@@ -1,5 +1,6 @@
 #include "ym2151.h"
 #include "soundfx.h"
+#include <conio.h>
 
 // Start or continue playing the specified sound effect when
 // called from the main loop
@@ -25,6 +26,14 @@ int playFx(struct soundFx_t *fx)
         }
         YMREG(reg, value);
         return 0;
+    }
+}
+
+// Synchronously play a specified sound effect in its own main loop
+void playFxSync(struct soundFx_t *fx)
+{
+    while (!playFx(fx)) {
+        waitvsync();
     }
 }
 
