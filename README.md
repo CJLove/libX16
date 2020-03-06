@@ -97,9 +97,40 @@ save_bank_sd() saves data from the specified banks of RAM to a file on the SD de
 - bankEnd - ending bank (0-255)
 - Returns 0 for success, non-zero for failure
 
+### Sound effects and YM2151 support
+```c
+#include "ym2151.h"
+void YMREG(reg,value);
+```
+YMREG() is a macro which sets a specified YM2151 register to a specified value. See [here](https://http://www.cx5m.net/fmunit.htm) for register details.
+
+```c
+#include "soundfx.h"
+struct soundFx_t {
+    // Index into the sound effect data
+    uint16_t idx;
+    // Delay count (0 means to process the next data register/value)
+    uint8_t delay;
+    // Bitmask specifying which channels are used in case of preemption
+    uint8_t channelMask;
+    // Sound fx data consisting of 8-bit YM-2151 register and 8-bit value
+    // Last register value must be of type FX_DONE_REG
+    uint8_t data[];
+};
+
+// Start/continue playing a specified sound effect when called periodically from the main loop
+// returns 1 when sound effect is complete
+int playFx(struct soundFx_t *fx);
+
+// Preempt the specified sound effect and reset state information for 
+// next use of the effect
+int stopFx(struct soundFx_t *fx);
+```
+
 ## Test code
 - vload_test.c builds `vload_test.prg` which loads data from TEST.BIN into VRAM in VERA banks 0 and 1 with validation.
 - load_file_test.c builds `load_file_test.prg` which loads data from TEST.BIN into RAM at 0x9000
 - load_bank_test.c builds `load_bank_test.prg` which loads data from TEST.BIN into Bankd RAM at 0xa000
 - save_file_test.c builds `save_file_test.prg` which saves data from 0x9000-0x9100 to TESTSAVE.BIN
 - **TBD**: save_bank_test.c builds `save_bank_test.prg` which saves data from RAM bank to TESTBANK.BIN
+- soundfx_test.c builds `soundfx_test.prg` which uses `playFx()` and `stopFx()` to play a sound effect

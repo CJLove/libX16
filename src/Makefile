@@ -5,7 +5,7 @@ LIBRARIES := ../lib
 INCLUDE := ../include
 
 FILES := \
-	vload.c load.c save.c
+	vload.c load.c save.c soundfx.c
 
 OBJ = $(FILES:%.c=%.o)
 

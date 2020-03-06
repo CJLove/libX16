@@ -42,3 +42,10 @@ FILES5 := \
 
 save_bank_test.prg: $(FILES5)
 	cl65 -t cx16 -o save_bank_test.prg -I $(INCLUDE) -L$(LIBRARIES) $(FILES5) libX16.lib cx16.lib
+
+FILES6 := \
+	soundfx_test.c
+
+soundfx_test.prg: $(FILES6)
+	cl65 -t cx16 -o soundfx_test.prg -I $(INCLUDE) -L$(LIBRARIES) $(FILES6) libX16.lib cx16.lib
+
