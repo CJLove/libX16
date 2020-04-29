@@ -4,7 +4,7 @@ LIBRARIES := ../lib
 
 INCLUDE := ../include
 
-all: vload_test.prg file_test.prg
+all: vload_test.prg load_bank_test.prg load_file_test.prg save_file_test.prg save_bank_test.prg soundfx_test.prg
 
 clean:
 	rm -f *.prg *.o *.s
