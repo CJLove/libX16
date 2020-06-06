@@ -130,6 +130,43 @@ void playFxSync(struct soundFx_t *fx);
 int stopFx(struct soundFx_t *fx);
 ```
 
+### VERA Definitions
+The `vera.h` header file adds a number of constant definitions and convenience macros which complement those in [cx16.h](https://github.com/cc65/cc65/blob/master/include/cx16.h) from CC65.
+
+```c
+// Get the L1 or L2 Map Base Address from a full VRAM address
+uint8_t MAP_BASE_ADDR(uint32_t addr);
+
+// Get the L1 or L2 Tile Base Address from a full VRAM address
+uint8_t TILE_BASE_ADDR(uint32_t addr);
+```
+The `MAP_BASE_ADDR()` and `TILE_BASE_ADDR()` macros handle converting VRAM addresses to 8-bit values suitable for the L1 or L2 base address registers.
+
+```c
+// Get the sprite address (low) from a full VRAM address
+uint8_t SPRITE_ADDR_L(uint32_t addr);
+
+// Get the sprite address (high) from a full VRAM address
+uint8_t SPRITE_ADDR_H(uint32_t addr);
+```
+The `SPRITE_ADDR_L()` and `SPRITE_ADDR_H()` macros handle converting VRAM addresses to 8-bit values suitable for Sprite address registers. 
+
+```c
+// Get sprite X low from 16-bit value
+uint8_t SPRITE_X_L(uint16_t value);
+
+// Get sprite X high from 16-bit value
+uint8_t SPRITE_X_H(uint16_t value);
+
+// Get sprite Y low from 16-bit value
+uint8_t SPRITE_Y_L(uint16_t value);
+
+// Get sprite Y high from 16-bit value
+uint8_t SPRITE_Y_H(uint16_t value);
+```
+These macros handle converting sprite X/Y coordinates in 16-bit values into separate 8-bit values suitable for the Sprite registers for X and Y coordinates.
+```
+
 ## Test code
 - vload_test.c builds `vload_test.prg` which loads data from TEST.BIN into VRAM in VERA banks 0 and 1 with validation.
 - load_file_test.c builds `load_file_test.prg` which loads data from TEST.BIN into RAM at 0x9000
