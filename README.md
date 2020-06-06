@@ -165,7 +165,6 @@ uint8_t SPRITE_Y_L(uint16_t value);
 uint8_t SPRITE_Y_H(uint16_t value);
 ```
 These macros handle converting sprite X/Y coordinates in 16-bit values into separate 8-bit values suitable for the Sprite registers for X and Y coordinates.
-```
 
 ## Test code
 - vload_test.c builds `vload_test.prg` which loads data from TEST.BIN into VRAM in VERA banks 0 and 1 with validation.
