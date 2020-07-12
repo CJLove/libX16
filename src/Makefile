@@ -22,3 +22,7 @@ libX16.lib: $(OBJ)
 
 clean:
 	rm -f $(LIBRARIES)/*.lib *.o *.s *.lib
+
+artifacts: all
+	cd .. ; rm -f libX16.zip ; zip libX16.zip include/* lib/*
+
