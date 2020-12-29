@@ -102,7 +102,7 @@ save_bank_sd() saves data from the specified banks of RAM to a file on the SD de
 #include "ym2151.h"
 void YMREG(reg,value);
 ```
-YMREG() is a macro which sets a specified YM2151 register to a specified value. See [here](https://http://www.cx5m.net/fmunit.htm) for register details.
+YMREG() is a macro which sets a specified YM2151 register to a specified value. See [here](http://www.cx5m.net/fmunit.htm) for register details.
 
 ```c
 #include "soundfx.h"
