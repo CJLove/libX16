@@ -171,10 +171,10 @@ The `bank_control.h` header defines an overlay structure containing the zero pag
 
 ```c
 // Select RAM bank 4
-BANK_CONTROL->ram_bank = 4;
+BANK_CTRL->ram_bank = 4;
 
 // Select ROM bank 2
-BANK_CONTROL->rom_bank = 2;
+BANK_CTRL->rom_bank = 2;
 ```
 
 ## Test code
