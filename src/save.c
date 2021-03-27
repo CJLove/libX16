@@ -2,6 +2,7 @@
 #include <cbm.h>
 #include <cx16.h>
 #include "device.h"
+#include "bank_control.h"
 
 // Save file from ram by specified start and end address
 uint8_t save_file(const char *fileName, uint8_t device, uint16_t addrStart, uint16_t addrEnd)
@@ -29,7 +30,7 @@ uint8_t save_bank(const char *fileName, uint8_t device, uint8_t bankStart, uint8
     // For now restriction that bankStart == bankEnd
     if (bankStart == bankEnd) {
         // Select the starting bank
-        VIA1.pra = bankStart;
+        BANK_CTRL.ram_bank = bankStart;
 
         cbm_k_setlfs(0,device,0);
         cbm_k_setnam(fileName);

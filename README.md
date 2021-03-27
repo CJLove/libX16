@@ -166,6 +166,17 @@ uint8_t SPRITE_Y_H(uint16_t value);
 ```
 These macros handle converting sprite X/Y coordinates in 16-bit values into separate 8-bit values suitable for the Sprite registers for X and Y coordinates.
 
+### ROM/RAM Bank Control
+The `bank_control.h` header defines an overlay structure containing the zero page addresses for selecting the RAM and ROM banks.
+
+```c
+// Select RAM bank 4
+BANK_CONTROL->ram_bank = 4;
+
+// Select ROM bank 2
+BANK_CONTROL->rom_bank = 2;
+```
+
 ## Test code
 - vload_test.c builds `vload_test.prg` which loads data from TEST.BIN into VRAM in VERA banks 0 and 1 with validation.
 - load_file_test.c builds `load_file_test.prg` which loads data from TEST.BIN into RAM at 0x9000

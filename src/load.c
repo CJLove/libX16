@@ -2,13 +2,14 @@
 #include <cbm.h>
 #include <cx16.h>
 #include "device.h"
+#include "bank_control.h"
 
 // Load file to Banked RAM
 uint16_t load_bank(const char *fileName, uint8_t device, uint8_t bank)
 {
     uint16_t addr = 0xa000;
 
-    VIA1.pra = bank;
+    BANK_CTRL.ram_bank = bank;
     // Use cc65 kernal wrappers directly
     cbm_k_setlfs(1,device,0);
     cbm_k_setnam(fileName);
