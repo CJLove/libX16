@@ -166,6 +166,31 @@ uint8_t SPRITE_Y_H(uint16_t value);
 ```
 These macros handle converting sprite X/Y coordinates in 16-bit values into separate 8-bit values suitable for the Sprite registers for X and Y coordinates.
 
+The `PSG_FREQ_L()` and `PSG_FREQ_H()` macros handle converting 16-bit frequency values to 8-bit
+values suitable for PSG Channel attributes
+
+```c
+// Get frequency low from 16-bit value
+uint8_t PSG_FREQ_L(uint16_t freq);
+
+// Get frequency high from 16-bit value
+uint8_t PSG_FREQ_H(uint16_t freq);
+```
+
+The `PSG_VOLUME()` macro handles converting left/right flags and volume to 8-bit values suitable for the PSG Channel attributes
+
+```c
+// Build volume attribute value
+uint8_t PSG_VOLUME(uint8_t right, uint8_t left, uint8_t volume);
+```
+
+The `PSG_WAVEFORM()` macro handles converting waveform and pulse width values to 8-bit values suitable for the PSG channel attributes
+
+```c
+// Build waveform/pulse-width value
+uint8_t PSG_WAVEFORM(uint8_t wf, uint8_t pw);
+```
+
 ### ROM/RAM Bank Control
 The `bank_control.h` header defines an overlay structure containing the zero page addresses for selecting the RAM and ROM banks.
 

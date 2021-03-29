@@ -132,5 +132,41 @@ enum {
     SPRITE_HEIGHT_64    = (0x3 << 6)
 };
 
+// PSG Registers for Channel 1 with INCR set to 1
+#define PSG_CH1_ATTR0   0x11fc00
+#define PSG_CH1_ATTR1   0x11fc01
+#define PSG_CH1_ATTR2   0x11fc02
+#define PSG_CH1_ATTR3   0x11fc03    
+
+// Offset for each PSG channel
+#define PSG_CHANNEL_OFFSET 4
+
+// PSG Channel Attributes 0 and 1 - Frequency as 16-bit value
+enum {
+    PSG_FREQ_MIDDLE_C = 702,
+    PSG_FREQ_STEP = 20
+};
+
+#define PSG_FREQ_L(freq)    (freq & 0xff)
+#define PSG_FREQ_H(freq)    (uint8_t)((freq >> 8) & 0xff)
+
+// PSG Channel Attribute 2 - Left/Right and Volume
+enum {
+    PSG_VOLUME_MAX = 0x3f
+};
+#define PSG_VOLUME(right,left,vol) (right << 7)|(left<6)|(vol & VOLUME_MAX)
+
+// PSG Channel Attribute 3 - Waveform and Pulse Width
+
+enum {
+    PSG_PULSE = 0,
+    PSG_SAWTOOTH = 1,
+    PSG_TRIANGLE = 2,
+    PSG_NOISE = 3,
+    PSG_PULSE_WIDTH_MAX = 0x3f
+};
+
+#define PSG_WAVEFORM(wf,pw) (wf << 6)|(pw & PSG_PULSE_WIDTH_MAX)
+
 // VERA Palette base address
 #define VERA_PALETTE_BASE 0x1fa00
